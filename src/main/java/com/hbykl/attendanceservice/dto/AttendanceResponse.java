@@ -1,37 +1,14 @@
-package com.hbykl.attendanceservice.entity;
+package com.hbykl.attendanceservice.dto;
 
 import java.sql.Date;
 
 import com.hbykl.attendanceservice.enums.StatusEnum;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-
-@Entity
-@Table(name = "Attendance")
-public class Attendance {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AttendanceResponse {
     private Long id;
-
-    @Column(name = "studentId")
-    @NotBlank(message = "Öğrenci boş olamaz")
     private Long studentId;
-
-    @Column(name = "date")
     private Date date;
-
-    @Column(name = "status")
-    @NotBlank(message = "Yoklama boş bırakılamaz.")
     private StatusEnum status;
-
-    @Column(name = "note")
     private String note;
 
     public Long getId() {
